@@ -1,0 +1,71 @@
+// Route -> Controller -> Views
+
+/* 
+-  Artisan commands:
+1. Make controller -> php artisan make:controller SomenameController
+
+2. Make model with migration -> php artisan make:model Singulartablename -m
+
+3. Make controller with predefined methods -> php artisan make:controller SomenameController --resource
+Then enter: php artisan route:list to list the resource route
++--------+-----------+-------------------+---------------+-----------------------------------------------+--------------+
+| Domain | Method    | URI               | Name          | Action                                        | Middleware   |
++--------+-----------+-------------------+---------------+-----------------------------------------------+--------------+
+|        | GET|HEAD  | posts             | posts.index   | App\Http\Controllers\PostsController@index    | web          |
+|        | POST      | posts             | posts.store   | App\Http\Controllers\PostsController@store    | web          |
+|        | GET|HEAD  | posts/create      | posts.create  | App\Http\Controllers\PostsController@create   | web          |
+|        | GET|HEAD  | posts/{post}      | posts.show    | App\Http\Controllers\PostsController@show     | web          |
+|        | PUT|PATCH | posts/{post}      | posts.update  | App\Http\Controllers\PostsController@update   | web          |
+|        | DELETE    | posts/{post}      | posts.destroy | App\Http\Controllers\PostsController@destroy  | web          |
+|        | GET|HEAD  | posts/{post}/edit | posts.edit    | App\Http\Controllers\PostsController@edit     | web          |
++--------+-----------+-------------------+---------------+-----------------------------------------------+--------------+
+
+4. Enable all laravel auth components -> php artisan make:auth
+
+5. Make migration only -> php artisan make:migration add_user_id_to_posts //replace with descriptive name
+
+6. Delete the latest migration that have been made -> php artisan migrate:rollback // caution may cause data loss
+
+7. Link the storage inside the public folder -> php artisan storage:link
+*/
+
+/*
+-  Creating a model and migration
+-  Model -> app/
+-  Migration -> database/migration/
+
+-  To migrate use: php artisan migrate
+
+-  To avoid problem when migrate with text
+
+1. Add in Providers/AppServiceProvider.php:
+use Illuminate\Support\Facades\Schema;
+
+2. then put this in boot() method
+Schema::defaultStringLength(191);
+
+*/
+
+
+/*
+    Check to see if user logged in anywhere even in blade. 
+    ex:
+
+    @if (Auth::user())
+        {{ auth()->user()->name }}
+    @else
+        {{ 'No user logged in' }}
+    @endif
+*/
+
+
+
+/*
+npm commands:
+Compile sass in resources folder -> npm run dev
+Compile and watch sass in resources folder -> npm run watch
+*/
+
+// Blade syntax
+{{  }} parse as text
+{!!  !!} parse as html
